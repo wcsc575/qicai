@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class AdminproductsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   def index
 
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to products_path, notice: '创建产品成功!' }
+        format.html { redirect_to adminproducts_path, notice: '创建产品成功!' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(admin_params)
-        format.html { redirect_to @product, notice: '创建产品成功!' }
+        format.html { redirect_to adminproducts_path, notice: '创建产品成功!' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -53,7 +53,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: '成功删除记录项!' }
+      format.html { redirect_to adminproducts_url, notice: '成功删除记录项!' }
       format.json { head :no_content }
     end
   end
